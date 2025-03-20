@@ -131,6 +131,7 @@ begin
 	-- CONCURRENT STATEMENTS ----------------------------
 	
 	-- ground unused LEDs
+
 	-- leave unused switches UNCONNECTED
 	
 	-- Ignore the warnings associated with these signals
