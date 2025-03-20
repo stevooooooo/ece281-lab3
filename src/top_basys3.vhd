@@ -96,7 +96,7 @@ component thunderbird_fsm is
 end component thunderbird_fsm;
 
 component clock_divider is
-	generic ( constant k_DIV : natural := 12500000	);
+	generic ( constant k_DIV : natural := 2	);
 	port ( 	i_clk    : in std_logic;		   -- basys3 clk
 			i_reset  : in std_logic;		   -- asynchronous
 			o_clk    : out std_logic		   -- divided (slow) clock
@@ -109,7 +109,7 @@ begin
 	-- PORT MAPS ----------------------------------------
     thunderbird_inst: thunderbird_fsm
     port map (
-        i_clk => btnL,
+        i_clk => w_clk,
         i_Reset => btnR,
         i_left => sw(15),
         i_right => sw(0),
