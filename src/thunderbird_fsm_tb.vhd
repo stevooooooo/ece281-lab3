@@ -121,9 +121,10 @@ begin
 		  wait for k_clk_period;
 		  assert w_lights_R = "111" report "should be 111 for R" severity failure;
 		  wait for k_clk_period;
-		  assert w_lights_R = "000" report "should be 000 for R" severity failure;
-		  
+		  assert w_lights_R = "000" report "should be 111 for R" severity failure;
+		 W_right <= '0';
 		  		-- left turn light
+		  		
 		W_left <= '1'; wait for k_clk_period;
           assert w_lights_L = "001" report "should be 001 for L" severity failure;
 		  wait for k_clk_period;
@@ -132,6 +133,23 @@ begin
 		  assert w_lights_L = "111" report "should be 111 for L" severity failure;
 		  wait for k_clk_period;
 		  assert w_lights_L = "000" report "should be 000 for L" severity failure;
+		W_left <= '0';
+		
+		--both
+		W_right <= '1'; 
+		W_left <= '1';
+		  wait for k_clk_period;
+		  assert w_lights_L = "111" report "should be 111 for both" severity failure;
+		  assert w_lights_L = "111" report "should be 111 for both" severity failure;
+		  wait for k_clk_period;
+		  assert w_lights_L = "000" report "should be 000 for both" severity failure;
+		  assert w_lights_L = "000" report "should be 000 for both" severity failure;
+		  wait for k_clk_period;
+		  assert w_lights_L = "111" report "should be 111 for both" severity failure;
+		  assert w_lights_L = "111" report "should be 111 for both" severity failure;
+		  wait for k_clk_period;		  
+		W_right <= '0'; 
+		W_left <= '0';		  
 		wait;
 	end process;
 	-----------------------------------------------------	
